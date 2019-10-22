@@ -24,7 +24,7 @@
 					<a href="index.html" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
-							<!-- <h1 class="site-title">Movies Review</h1> -->
+							<h1 class="site-title">Movies Review</h1>
 						
 						</div>
 					</a> <!-- #branding -->
@@ -38,7 +38,7 @@
 				<div class="container">
 				<div class="page">
 						<div class="breadcrumbs">
-							<a href="index.html">Home</a>
+							<!-- <a href="index.html">Home</a> -->
 							<span>Movie Review</span>
 						</div>
 
