@@ -24,7 +24,7 @@
 					<a href="index.html" id="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-copy">
-							<h1 class="site-title">Movies Review</h1>
+							<!-- <h1 class="site-title">Movies Review</h1> -->
 						
 						</div>
 					</a> <!-- #branding -->
