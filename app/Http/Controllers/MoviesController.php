@@ -5,6 +5,7 @@ use App\Movies;
 use App\Comment;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\DB;
 
 class MoviesController extends Controller
 {
@@ -144,8 +145,14 @@ class MoviesController extends Controller
     }
 
     public function review_movie($id){
+
         $data = Movies::findOrFail($id);
-        return view('review',compact('data'));
+        $data_comment = DB::select("select a.id, a.name_movie, a.desc, b.id_movie, b.desc_comment
+                            from movies a 
+                            LEFT JOIN comments b ON a.id = b.id_movie where a.id=$id");
+        //dd($data);
+        
+        return view('review',compact('data','data_comment'));
     }
 
     public function comment(Request $request){
@@ -159,7 +166,7 @@ class MoviesController extends Controller
         );
        // dd($form_data);
         Comment::create($form_data);
-
+        return response()->json(['success'=>'Data is successfully added']);
         // return view('review', ['data_comment' => $form_data]);
     }   
 }

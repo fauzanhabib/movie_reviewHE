@@ -29,129 +29,52 @@
 						</div>
 					</a> <!-- #branding -->
 
-					<!-- <div class="main-navigation">
-						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
-						<ul class="menu">
-							<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
-							<li class="menu-item"><a href="about.html">About</a></li>
-							<li class="menu-item"><a href="review.html">Movie reviews</a></li>
-							<li class="menu-item"><a href="joinus.html">Join us</a></li>
-							<li class="menu-item"><a href="contact.html">Contact</a></li>
-						</ul> 
-
-						<form action="#" class="search-form">
-							<input type="text" placeholder="Search...">
-							<button><i class="fa fa-search"></i></button>
-						</form>
-					</div>  -->
+					
 
 					<div class="mobile-navigation"></div>
 				</div>
 			</header>
 			<main class="main-content">
 				<div class="container">
-					<div class="page">
-						<div class="row">
-							<div class="col-md-9">
-								
+				<div class="page">
+						<div class="breadcrumbs">
+							<a href="index.html">Home</a>
+							<span>Movie Review</span>
+						</div>
+
+						<div class="filters">
+							<select name="#" id="#" placeholder="Choose Category">
+								<option value="#">Action</option>
+								<option value="#">Drama</option>
+								<option value="#">Fantasy</option>
+								<option value="#">Horror</option>
+								<option value="#">Adventure</option>
+							</select>
+							<select name="#" id="#">
+								<option value="#">2012</option>
+								<option value="#">2013</option>
+								<option value="#">2014</option>
+							</select>
+						</div>
+						<div class="movie-list">
+						@foreach($data as $row)
+							<div class="movie">
+								<figure class="movie-poster"><img src="{{ URL::to('/') }}/images/{{ $row->image }}" class="img-thumbnail"/></figure>
+								<div class="movie-title"><a href="{{route('review_movie',$row->id)}}">{{$row->name_movie}}</a></div>
+								<p>{{$row->desc}}.</p>
 							</div>
-							<div class="col-md-3">
-								<div class="row">
-									<div class="col-sm-6 col-md-12">
-										<div class="latest-movie">
-											<a href="#"><img src="dummy/thumb-1.jpg" alt="Movie 1"></a>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-12">
-										<div class="latest-movie">
-											<a href="#"><img src="dummy/thumb-2.jpg" alt="Movie 2"></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> <!-- .row -->
-						<div class="row">
-                        @foreach($data as $row)
-							<div class="movie-list">
-								<!-- <div class="latest-movie"> -->
-									<div class="movie">
-										<figure class="movie-poster"><img src="{{ URL::to('/') }}/images/{{ $row->image }}" class="img-thumbnail"/></figure>
-										<div class="movie-title"><a href="{{route('review_movie',$row->id)}}">{{$row->name_movie}}</a></div>
-										<p>{{$row->desc}}</p>
-									</div>
-								<!-- </div> -->
-							</div>
+						@endforeach
 							
-                            @endforeach
-						</div> <!-- .row -->
-						
-						<div class="row">
-							<div class="col-md-4">
-								<h2 class="section-title">December premiere</h2>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-								<ul class="movie-schedule">
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-								</ul> <!-- .movie-schedule -->
-							</div>
-							<div class="col-md-4">
-								<h2 class="section-title">November premiere</h2>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-								<ul class="movie-schedule">
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-								</ul> <!-- .movie-schedule -->
-							</div>
-							<div class="col-md-4">
-								<h2 class="section-title">October premiere</h2>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-								<ul class="movie-schedule">
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-									<li>
-										<div class="date">16/12</div>
-										<h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-									</li>
-								</ul> <!-- .movie-schedule -->
-							</div>
+						</div> <!-- .movie-list -->
+
+						<div class="pagination">
+							<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+							<span class="page-number current">1</span>
+							<a href="#" class="page-number">2</a>
+							<a href="#" class="page-number">3</a>
+							<a href="#" class="page-number">4</a>
+							<a href="#" class="page-number">5</a>
+							<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div> <!-- .container -->
