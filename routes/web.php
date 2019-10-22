@@ -24,3 +24,5 @@ Route::get('/list', 'MoviesController@index')->name('list');
 
 //Route::post('movies', 'MoviesController@store')->name('movies.store');
 Route::resource('movies','MoviesController');
+Route::get('/review/{id}', 'MoviesController@review_movie')->name('review_movie');
+Route::post('/comment','MoviesController@comment')->name('comment');

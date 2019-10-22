@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Movies;
+use App\Comment;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -142,4 +143,23 @@ class MoviesController extends Controller
         return redirect('list')->with('success', 'Data is successfully updated');
     }
 
+    public function review_movie($id){
+        $data = Movies::findOrFail($id);
+        return view('review',compact('data'));
+    }
+
+    public function comment(Request $request){
+        //dd($request);
+        $image_id = $request->id;
+
+        $form_data = array(
+            'id_movie' => $request->id,
+            'desc_comment' => $request->comment,
+          
+        );
+       // dd($form_data);
+        Comment::create($form_data);
+
+        // return view('review', ['data_comment' => $form_data]);
+    }   
 }

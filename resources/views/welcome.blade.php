@@ -72,10 +72,14 @@
 						</div> <!-- .row -->
 						<div class="row">
                         @foreach($data as $row)
-							<div class="col-sm-6 col-md-3">
-								<div class="latest-movie">
-									<a href="#"><img src="{{ URL::to('/') }}/images/{{ $row->image }}" class="img-thumbnail"/></a>
-								</div>
+							<div class="movie-list">
+								<!-- <div class="latest-movie"> -->
+									<div class="movie">
+										<figure class="movie-poster"><img src="{{ URL::to('/') }}/images/{{ $row->image }}" class="img-thumbnail"/></figure>
+										<div class="movie-title"><a href="{{route('review_movie',$row->id)}}">{{$row->name_movie}}</a></div>
+										<p>{{$row->desc}}</p>
+									</div>
+								<!-- </div> -->
 							</div>
 							
                             @endforeach
