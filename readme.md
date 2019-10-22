@@ -8,7 +8,12 @@ TODO: Describe the installation process
 2. open command promt and composer install
 3. copy and rename .env.example to .env
 4. setting your
- 
+#  DB_CONNECTION=mysql
+ # DB_HOST=127.0.0.1
+ # DB_PORT=3306
+ # DB_DATABASE=movie_review
+ # DB_USERNAME=root
+ # DB_PASSWORD=
 5. migrate your databases table using 'php artisan migrate' on terminal
 6. page Home http://127.0.0.1:8000/
 7. page login http://127.0.0.1:8000/login
